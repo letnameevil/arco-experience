@@ -1,0 +1,13 @@
+// 路由出口滚动条样式
+.router-scrollbar > .arco-scrollbar-track.arco-scrollbar-track-direction-horizontal {
+  display: none;
+}
+
+.arco-scrollbar-thumb-bar {
+  background-color: #cccccc80 !important;
+}
+
+// 行内表单同一间隔
+.arco-form-item-layout-inline {
+  margin-right: 8px;
+}

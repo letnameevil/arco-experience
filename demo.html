@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [
+        {
+          path: '/backend-config',
+          component: {
+            __name: 'index',
+            __hmrId: '051739fd',
+            __scopeId: 'data-v-051739fd',
+            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
+          },
+          meta: {
+            title: '后台配置',
+          },
+          children: [
+            {
+              path: 'user-admin',
+              meta: {
+                title: '用户管理',
+              },
+            },
+            {
+              path: 'user-info',
+              meta: {
+                title: '用户信息',
+              },
+            },
+          ],
+        },
+        {
+          path: '/business-report',
+          component: {
+            __name: 'index',
+            __hmrId: '051739fd',
+            __scopeId: 'data-v-051739fd',
+            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
+          },
+          meta: {
+            title: '业务报表',
+          },
+          children: [
+            {
+              path: 'production',
+              meta: {
+                title: '生产',
+              },
+            },
+            {
+              path: 'quality',
+              meta: {
+                title: '质量',
+              },
+            },
+            {
+              path: 'repair',
+              meta: {
+                title: '维修',
+              },
+            },
+          ],
+        },
+        {
+          path: '/function-module',
+          component: {
+            __name: 'index',
+            __hmrId: '051739fd',
+            __scopeId: 'data-v-051739fd',
+            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
+          },
+          meta: {
+            title: '功能模块',
+          },
+          children: [
+            {
+              path: 'data-config',
+              meta: {
+                title: '数据配置',
+              },
+            },
+            {
+              path: 'data-dict',
+              meta: {
+                title: '数据字典',
+              },
+            },
+          ],
+        },
+      ]
+
+      function traverseArr(arr) {
+        const tempArr = []
+        for (let i = 0; i < arr.length; i++) {
+          const el = arr[i]
+          tempArr.push({
+            link: el.name,
+            title: el.meta.title,
+            children: el.children && el.children.length > 0 ? traverseArr(el.children) : [],
+          })
+        }
+        return tempArr
+      }
+
+      console.log('traverseArr(arr)', traverseArr(arr))
+    </script>
+  </body>
+</html>
+
+<!-- 遍历 -->
