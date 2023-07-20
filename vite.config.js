@@ -7,7 +7,6 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 export default defineConfig(({ mode, command }) => {
-  console.log('mode,server', mode, command)
   return {
     plugins: [
       vue(),
@@ -25,16 +24,15 @@ export default defineConfig(({ mode, command }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
-    // server: {
-    //   open: true,
-    //   proxy: {
-    //     '^/api': {
-    //       // target: 'http://192.168.137.58:8080',
-    //       changeOrigin: true,
-    //       // rewrite: path => path.replace(/^\/hats-biz-heboyu/, '')
-    //       rewrite: path => path.replace(/^\/hats-biz-heboyu/, '/api/hats-biz'),
-    //     },
-    //   },
-    // },
+    server: {
+      open: true,
+      proxy: {
+        '^/api': {
+          target: 'https://zj.v.api.aa1.cn',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+    },
   }
 })
