@@ -12,7 +12,6 @@ const currentKey = ref('')
 watch(
   () => Route.name,
   (newValue, oldValue) => {
-    // console.log('newValue,oldValue', newValue, oldValue)
     currentKey.value = newValue
   },
   {
@@ -23,6 +22,7 @@ watch(
 const sideBarStore = useSideBarStore()
 
 const onClickMenuItem = key => {
+  if (key.includes('.')) return window.open(key)
   Router.push({
     name: key,
   })

@@ -10,7 +10,6 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const iconMapList = ref(iconList)
-    // const MSG = getCurrentInstance().appContext.config.globalProperties.$message
     watch(
       () => props.keyWord,
       newValue => {

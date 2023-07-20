@@ -44,5 +44,6 @@ import HotChart from './component/hot-chart.vue'
 :deep(.bottom-card .arco-card-body) {
   width: 100%;
   height: 100%;
+  padding: 0;
 }
 </style>

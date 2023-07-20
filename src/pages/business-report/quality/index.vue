@@ -1,7 +1,15 @@
 <script setup name="quality-page">
-console.log('质量')
 </script>
 
 <template>
-  <div class="quality-page">质量</div>
+  <div class="quality-page">
+    <a-button
+      @click="
+        $router.push({
+          name: 'level-one',
+        })
+      "
+      >到修改页面</a-button
+    >
+  </div>
 </template>

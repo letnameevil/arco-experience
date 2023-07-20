@@ -58,5 +58,6 @@ const onCollapse = (val, type) => {
 
 .arco-layout-content {
   background-color: #f6f3f3;
+  // background-color: #232324;
 }
 </style>

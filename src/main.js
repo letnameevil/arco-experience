@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import router from './router'
 import Pinia from '@/stores'
 import ArcoVue from '@arco-design/web-vue'
-import ArcoVueIcon from '@arco-design/web-vue/es/icon';
+import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import App from './App.vue'
 
@@ -22,7 +22,6 @@ import '@/assets/styles/index.css'
  **/
 import './utils/handle-routes'
 import './router-limit'
-
 const app = createApp(App)
 app.component('SvgIcon', SvgIcon)
 app.use(ArcoVue).use(ArcoVueIcon).use(Pinia).use(router).mount('#app')

@@ -100,6 +100,38 @@ export const asyncRoutes = [
       },
     ],
   },
+  // 单菜单模式
+  {
+    path: '/aaa',
+    name: 'aaa',
+    component: Layout,
+    redirect: '/aaa/b',
+    meta: {
+      title: '一级路由',
+      svgName: 'function',
+    },
+    children: [
+      {
+        path: 'b',
+        name: 'b',
+        component: () => import('@/pages/function-module/data-dict/index.vue'),
+        meta: {
+          title: '二级路由',
+          hidden: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/bb',
+    name: 'bb',
+    meta: {
+      linkUrl: 'http://www.baidu.com',
+      isLink: true,
+      title: '百度',
+      svgName: 'function',
+    },
+  },
 ]
 
 export default asyncRoutes
