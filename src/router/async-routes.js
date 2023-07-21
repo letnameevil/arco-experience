@@ -132,6 +132,16 @@ export const asyncRoutes = [
       svgName: 'link',
     },
   },
+  // 新增配置页面
+  {
+    path: '/add-page',
+    name: 'add-page',
+    component: () => import('@/pages/add-page/index.vue'),
+    meta: {
+      title: '配置页面',
+      hidden: true,
+    },
+  },
 ]
 
 export default asyncRoutes
