@@ -1,7 +1,16 @@
-<script setup></script>
+<script setup>
+import { useGlobalLoading } from '@/stores/global-loading'
+
+const globalLoadingStore = useGlobalLoading()
+</script>
 
 <template>
   <a-config-provider :size="'small'">
-    <RouterView />
+    <a-spin :loading="globalLoadingStore.globalLoading" tip="loading...">
+      <template #icon>
+        <icon-sun />
+      </template>
+      <RouterView />
+    </a-spin>
   </a-config-provider>
 </template>

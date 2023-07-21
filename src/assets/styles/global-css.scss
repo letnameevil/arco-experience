@@ -5,3 +5,11 @@
   height: 100vh;
   overflow: hidden;
 }
+
+/**
+  全局加载样式（保证加载效果在中间）
+*/
+// #app > .arco-spin.arco-spin-loading {
+//   width: 100%;
+//   height: 100%;
+// }
