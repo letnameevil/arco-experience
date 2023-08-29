@@ -6,110 +6,60 @@
     <title>Document</title>
   </head>
   <body>
+    <div>
+      <label>验证码：</label> <input type="text" id="verifyCodeInput" /> <img id="verifyCodeImg" /> <button id="refreshBtn">刷新验证码</button>
+      <button id="submitBtn">提交</button>
+    </div>
     <script>
-      const arr = [
-        {
-          path: '/backend-config',
-          component: {
-            __name: 'index',
-            __hmrId: '051739fd',
-            __scopeId: 'data-v-051739fd',
-            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
-          },
-          meta: {
-            title: '后台配置',
-          },
-          children: [
-            {
-              path: 'user-admin',
-              meta: {
-                title: '用户管理',
-              },
-            },
-            {
-              path: 'user-info',
-              meta: {
-                title: '用户信息',
-              },
-            },
-          ],
-        },
-        {
-          path: '/business-report',
-          component: {
-            __name: 'index',
-            __hmrId: '051739fd',
-            __scopeId: 'data-v-051739fd',
-            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
-          },
-          meta: {
-            title: '业务报表',
-          },
-          children: [
-            {
-              path: 'production',
-              meta: {
-                title: '生产',
-              },
-            },
-            {
-              path: 'quality',
-              meta: {
-                title: '质量',
-              },
-            },
-            {
-              path: 'repair',
-              meta: {
-                title: '维修',
-              },
-            },
-          ],
-        },
-        {
-          path: '/function-module',
-          component: {
-            __name: 'index',
-            __hmrId: '051739fd',
-            __scopeId: 'data-v-051739fd',
-            __file: 'C:/Users/csh/Desktop/arco-design/src/layout/index.vue',
-          },
-          meta: {
-            title: '功能模块',
-          },
-          children: [
-            {
-              path: 'data-config',
-              meta: {
-                title: '数据配置',
-              },
-            },
-            {
-              path: 'data-dict',
-              meta: {
-                title: '数据字典',
-              },
-            },
-          ],
-        },
-      ]
-
-      function traverseArr(arr) {
-        const tempArr = []
-        for (let i = 0; i < arr.length; i++) {
-          const el = arr[i]
-          tempArr.push({
-            link: el.name,
-            title: el.meta.title,
-            children: el.children && el.children.length > 0 ? traverseArr(el.children) : [],
-          })
+      // 生成随机字符串
+      function generateRandomString(length) {
+        const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        let randomString = ''
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * charSet.length)
+          randomString += charSet.charAt(randomIndex)
         }
-        return tempArr
-      }
+        return randomString
+      } // 生成验证码图片
+      function generateVerifyCodeImage() {
+        const canvas = document.createElement('canvas')
+        canvas.width = 100
+        canvas.height = 30
+        const ctx = canvas.getContext('2d')
+        const verifyCode = generateRandomString(6)
+        ctx.font = '20px Arial'
+        ctx.fillStyle = '#333'
+        ctx.fillText(verifyCode, 10, 20)
+        return canvas.toDataURL()
+      } // 刷新验证码图片
+      function refreshVerifyCode() {
+        const verifyCodeImg = document.getElementById('verifyCodeImg')
+        verifyCodeImg.src = generateVerifyCodeImage()
+      } // 验证用户输入的验证码是否正确
+      function verifyCode() {
+        const verifyCodeInput = document.getElementById('verifyCodeInput')
+        const verifyCodeImg = document.getElementById('verifyCodeImg')
+        return verifyCodeInput.value === verifyCodeImg.alt
+      } // 绑定事件
+      document.addEventListener('DOMContentLoaded', () => {
+        const verifyCodeImg = document.getElementById('verifyCodeImg')
+        verifyCodeImg.src = generateVerifyCodeImage()
+        verifyCodeImg.alt = verifyCodeImg.src.substr(23)
+        const refreshBtn = document.getElementById('refreshBtn')
+        refreshBtn.addEventListener('click', refreshVerifyCode)
+        const submitBtn = document.getElementById('submitBtn')
+        submitBtn.addEventListener('click', () => {
+          if (verifyCode()) {
+            alert('验证码正确！')
+          } else {
+            alert('验证码错误，请重新输入！')
+          }
+          refreshVerifyCode()
+        })
+      })
 
-      console.log('traverseArr(arr)', traverseArr(arr))
+
+    
     </script>
   </body>
 </html>
-
-<!-- 遍历 -->

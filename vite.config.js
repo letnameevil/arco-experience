@@ -28,7 +28,7 @@ export default defineConfig(({ mode, command }) => {
       open: true,
       proxy: {
         '^/api': {
-          target: 'https://zj.v.api.aa1.cn',
+          target: 'https://v.api.aa1.cn',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, ''),
         },
