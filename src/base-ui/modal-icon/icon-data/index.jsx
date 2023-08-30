@@ -1,4 +1,4 @@
-import { ref, defineComponent, watch, getCurrentInstance } from 'vue'
+import { ref, defineComponent, watch } from 'vue'
 import iconList from './index.js'
 
 export default defineComponent({

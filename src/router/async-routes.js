@@ -108,7 +108,7 @@ export const asyncRoutes = [
     redirect: '/aaa/b',
     meta: {
       title: '一级路由',
-      svgName: 'function',
+      svgName: 'menu',
     },
     children: [
       {
@@ -129,7 +129,17 @@ export const asyncRoutes = [
       linkUrl: 'http://www.baidu.com',
       isLink: true,
       title: '百度',
-      svgName: 'function',
+      svgName: 'link',
+    },
+  },
+  // 新增配置页面
+  {
+    path: '/add-page',
+    name: 'add-page',
+    component: () => import('@/pages/add-page/index.vue'),
+    meta: {
+      title: '配置页面',
+      hidden: true,
     },
   },
 ]

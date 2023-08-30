@@ -5,5 +5,6 @@ export const getText = params => {
   return $request.get({
     url: '/api/xz/',
     params,
+    isLoading: true,
   })
 }
