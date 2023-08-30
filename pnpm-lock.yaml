@@ -10,6 +10,9 @@ dependencies:
   echarts:
     specifier: ^5.4.2
     version: 5.4.2
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -1785,6 +1788,10 @@ packages:
       emojis-list: 3.0.0
       json5: 1.0.2
     dev: true
+
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
